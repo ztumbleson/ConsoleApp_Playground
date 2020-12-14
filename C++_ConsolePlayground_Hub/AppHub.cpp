@@ -18,7 +18,6 @@ bool AppHub::RunHub() {
 	bool errorsEncountered = false;
 	
 	//Run the hub
-	DisplayMainMenu();
 	MainLoop();
 
 	return errorsEncountered;
@@ -54,25 +53,25 @@ void AppHub::DisplayMainMenu() {
 }
 
 void AppHub::MainLoop() {
-	char userInput;
+	std::string userInput;
+	char junk;
 	do {
+		DisplayMainMenu();
 		std::cin >> userInput;
 
-		switch (userInput) {
-			case '1':
-				//TODO Figure out a better way to do this, use an enum somehow
-				apps[0]->RunApp();
-				break;
-			case 'q':
-				std::cout << "Bye Bye for now" << std::endl;
-				break;
-			default:
-				break;
+		if (userInput != "q") {
+			//User not quitting, open app user has selected, subtract 1 to account for indexing from 0
+			int appNum = std::stoi(userInput) - 1;
+			if (appNum < apps.size()) {
+				std::cout << ConsoleHelpers::PrintStartingAppBlock(apps[appNum]->GetDisplayName());
+				apps[appNum]->RunApp();
+				std::cout << ConsoleHelpers::PrintClosingAppBlock(apps[appNum]->GetDisplayName());
+				std::cin.get();
+			}
+			else {
+				std::cout << "Please enter a number or letter corresponding to an option in the list\n";
+			}
 		}
 
-		DisplayMainMenu();
-
-	} while (userInput != 'q');
-
-	
+	} while (userInput != "q");
 }

@@ -14,6 +14,7 @@
 #include <iostream>
 #include "AppHub.h"
 #include "TestApp.h"
+#include "SleepTracker.h"
 using namespace std;
 
 void AppStartups(AppHub &hub);
@@ -37,6 +38,7 @@ void AppStartups(AppHub &hub) {
     
     std::cout << "Registering Apps: \n\n";
     TestApp::Startup(hub);
+    SleepTracker::Startup(hub);
 }
 
 

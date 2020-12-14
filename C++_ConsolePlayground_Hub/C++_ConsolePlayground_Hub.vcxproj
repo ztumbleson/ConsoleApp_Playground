@@ -142,6 +142,8 @@
     <ClCompile Include="AppHub.cpp" />
     <ClCompile Include="AppTemplate.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="SleepLog.cpp" />
+    <ClCompile Include="SleepTracker.cpp" />
     <ClCompile Include="TestApp.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -149,6 +151,8 @@
     <ClInclude Include="AppHub.h" />
     <ClInclude Include="AppTemplate.h" />
     <ClInclude Include="ConsoleHelpers.h" />
+    <ClInclude Include="SleepLog.h" />
+    <ClInclude Include="SleepTracker.h" />
     <ClInclude Include="TestApp.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
